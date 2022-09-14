@@ -29,6 +29,11 @@ public class SnakeController : MonoBehaviour {
         GrowSnake();
         GrowSnake();
         GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
     }
 
     // Update is called once per frame
@@ -66,4 +71,13 @@ public class SnakeController : MonoBehaviour {
         GameObject body = Instantiate(BodyPrefab);
         BodyParts.Add(body);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Collectible")
+            other.gameObject.SetActive(false);
+        Debug.Log("You got a collectible!"); //player need to be tagged as Player and collectible as Collectible
+    }
+
+
 }
